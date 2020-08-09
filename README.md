@@ -22,7 +22,7 @@ In this repository, I have gathered and labelled my own dataset for my Pill Clas
 </p>
 
 ## System Requirements
-When it comes to training a model, your system can heavily affect the process. The times and other figures I mention later on will be influenced by your own system specifications. My system has an Intel i5-9600KF, and more importantly an NVIDIA GeForce GTX 1660 Super with 6GBDDR6 Graphics Card Memory and 8GB of System Memory. To train with TensorFlow GPU, you need a CUDA-Enabled Graphics Card(NVIDIA GTX 650+). For more info on GPU requiremnts check the CUDA Docs [here](https://developer.nvidia.com/cuda-gpus).
+When it comes to training a model, your system can heavily affect the process. The times and other figures I mention later on will be influenced by your own system specifications. My system has an Intel i5-9600KF, and more importantly an NVIDIA GeForce GTX 1660 Super with 6GBDDR6 Graphics Card Memory and 8GB of System Memory. To train with TensorFlow GPU, you need a CUDA-Enabled Graphics Card(NVIDIA GTX 650+). For more info on GPU requirements check the CUDA Docs [here](https://developer.nvidia.com/cuda-gpus).
 <p align="left">
   <img src="doc/cuda.png">
 </p>
