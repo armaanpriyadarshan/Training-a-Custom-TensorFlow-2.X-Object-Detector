@@ -88,7 +88,7 @@ Once you are here, you will have to clone the [TensorFlow models repository](htt
 ```
 git clone https://github.com/tensorflow/models.git
 ```
-This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download my repository into a .zip file. Then extract the two files, workspace and scripts, highlighted below directly in to the TensorFlow directory.
+This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download [this](https://github.com/armaanpriyadarshan/Training-a-Custom-TensorFlow-2.x-Object-Detector/archive/master.zip) repository into a .zip file. Then extract the two files, workspace and scripts, highlighted below directly in to the TensorFlow directory.
 <p align="left">
   <img src="doc/clone.png">
 </p>
@@ -143,7 +143,7 @@ cd C:\TensorFlow\models\research
 Once here, copy and run the setup script with 
 
 ```
-cp object_detection/packages/tf2/setup.py .
+copy object_detection\packages\tf2\setup.py .
 python -m pip install .
 ```
 If there are any errors, report an issue, but they are most likely pycocotools issues meaning your installation was incorrect. But if everything went according to plan you can test your installation with
