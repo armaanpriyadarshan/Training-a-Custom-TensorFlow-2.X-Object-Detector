@@ -1,4 +1,4 @@
-# Training-a-Custom-TensorFlow-2.x-Object-Detector
+# Training-a-Custom-TensorFlow-2.X-Object-Detector
 Learn how to train a TensorFlow Custom Object Detector with TensorFlow-GPU
 
 This repo is guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this [documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#), however I have simplified the steps and the process. As of 8/8/2020 I have tested with TensorFlow 2.2.0 to train a model on Windows 10.
@@ -20,3 +20,9 @@ In this repository, I have gathered and labelled my own dataset for my Pill Clas
 <p align="center">
   <img src="doc/pills.png">
 </p>
+
+## System Requirements
+When it comes to training a model, your system can heavily affect the process. The times and other figures I mention later on will be influenced by your own system specifications. My system has an Intel i5-9600KF, and more importantly an NVIDIA GeForce GTX 1660 Super with 6GBDDR6 Graphics Card Memory and 8GB of System Memory. To train with TensorFlow GPU, you need a CUDA-Enabled Graphics Card(NVIDIA GTX 650+). For more info on GPU requiremnts check the CUDA Docs [here](https://developer.nvidia.com/cuda-gpus).
+
+If you are unsure if you have a compatible GPU, there are two options. The first is to use trial and error. By this I mean install the CUDA Runtime mentioned later on and see if your system is compatible. The CUDA Installer has a built-in system checker that determines your system compatibility. The second option is using Tensorflow CPU(basically just plain tensorflow) however this is significanly slower than TensorFlow-GPU but works just as well. I have not tested this, but if you decide to, follow the alternate steps I mention later on for TensorFlow CPU.
+
