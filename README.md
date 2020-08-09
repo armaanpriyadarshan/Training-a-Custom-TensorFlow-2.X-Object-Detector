@@ -177,3 +177,16 @@ Ran 20 tests in 45.304s
 OK (skipped=1)
 ```
 This means we successfully set up the Anaconda Directory Structure and TensorFlow Object Detection API. We can now finally collect and label our dataset. So, let's go on to the next step!
+
+### Gathering and Labeling our Dataset
+Since the TensorFlow Object Detection API ready to go, we must collect and label pictures that the model will be trained and tested on. All the files that will be needed from
+now on will be loacated in the workspace\training_demo directory. So take a second, look around, and get used to the structure of the directory. 
+
+- ```annotations```: This is where we will store all our training data needed for our model. By this I mean the CSV and RECORD files needed for the training pipeline. There is also a PBTXT File with the labels for our model. If you are training your own dataset you can delete train.record and test.record, but if you are training my Pill Classifier model you can keep them.
+- ```exported-models```: This is our output folder where we will export and store our finished inference graph.
+- ```images```: This folder consists of a test and train folder. Here we will store the labelled images needed for training and testing as you can probably infer. The labelled images consist of the original image and an XML File. If you want to train the Pill Classifier model, you can keep the images and XML documents, otherwise delete the images and XML files.
+- ```models```: In this folder we will store our training pipeline and checkpoint information from the training job as well as the CONFIG file needed for training.
+- ```pre-trained-models```: Here we will store our pre-trained model that we will use as a starting checkpoint for training
+- The rest of the scripts are just used for training and exporting the model, as well as a sample object detection scipt that performs inference on a test image.
+
+If you want to train a model on your own custom dataset, you must first gather images. Ideally you would want to use 100 images for each class. Say for example, you are training a cat and dog detector. You would have to gather 100 images of cats and 100 images of dogs. For images of pills, I just looked on the internet and downloaded various images. But for your own dataset, I reccomend taking diverse pictures with different backgrounds and angles.
