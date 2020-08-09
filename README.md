@@ -17,3 +17,6 @@ I will soon make a YouTube Tutorial which will be posted [here](), and an extrem
 
 In this repository, I have gathered and labelled my own dataset for my Pill Classification Demo that identifies two types of pills. The training data for this dataset has also been generated, and it's ready for training. If you want to try it out or get some practice with the Object Detection API, you can try training the Pill Classification Model.
 
+<p align="center">
+  <img src="doc/pills.png">
+</p>
