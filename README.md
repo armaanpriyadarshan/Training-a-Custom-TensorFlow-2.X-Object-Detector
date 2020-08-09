@@ -261,4 +261,4 @@ python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\trai
 
 python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\test -l C:\Tensorflow\workspace\training_demo\annotations\label_map.pbtxt -o C:\Tensorflow\workspace\training_demo\annotations\test.record
 ```
- After each command you should get a success meassage stating that the TFRecord File has been created. That means we have generated all the data necessary, and we can proceed to configure the training pipeline in the next step
+ After each command you should get a success meassage stating that the TFRecord File has been created. So now under ```annotations``` there should be a ```test.record``` and ```train.record```. That means we have generated all the data necessary, and we can proceed to configure the training pipeline in the next step
