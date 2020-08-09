@@ -199,7 +199,7 @@ If you want to train a model on your own custom dataset, you must first gather i
 <p align="left">
   <img src="doc/648_pd1738885_1.jpg">
 </p>
-After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you can label them with 
+After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you can label them with [LabelImg](https://tzutalin.github.io/labelImg)
 
 
 After Downloading LablelImg, configure settings such as the OpenDir and SaveDir. This let's you cycle through all the images and manually create bounding boxes around the objects. Then add labels for each object and save the XML document. Do this for all the images in the images\test and images\train folders. 
