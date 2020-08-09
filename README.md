@@ -7,7 +7,7 @@ I will soon make a YouTube Tutorial which will be posted [here](), and an extrem
 
 ## Table of Contents
 1. [Installing TensorFlow GPU]()
-2. [Preparing Workspace and Anaconda Virtual Environment Directory Structure]()
+2. [Preparing our Workspace and Anaconda Virtual Environment Directory Structure]()
 3. [Gathering and Labeling our Dataset]()
 4. [Generating Training Data]()
 5. [Configuring the Training Pipeline]()
@@ -72,3 +72,18 @@ python
 >>> print(tf.__version__)
 ```
 If everything has installed properly you should get the message, "2.2.0". This means TensorFlow is up and running and we are ready to gather our dataset. We can now proceed to the next step!
+
+### Preparing our Workspace and Anaconda Virtual Environment Directory Structure
+For the TensorFlow Object Detection API, there is a certain directory structure that we must follow to train our model. To make the process a bit easier, I added most of the necessary files in this repository.
+
+Firstly, create a folder directly in C: and name it "TensorFlow". It's up to you where you want to folder, but you will have to keep in mind this directory path will be needed later to align the commands. Once you have created this folder, go in to Anaconda and switch to the folder with
+
+```
+cd C:\TensorFlow
+```
+Once you are here, you will have to clone the [TensorFlow models repository](https://github.com/tensorflow/models) with
+
+```
+git clone https://github.com/tensorflow/models.git
+```
+This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download this repository into a .zip file. 
