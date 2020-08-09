@@ -1,0 +1,38 @@
+<annotation>
+	<folder>train</folder>
+	<filename>5mg-325mg_Hydrocodone-APAP_Tablet.jpg</filename>
+	<path>C:\tensorflow1\models\research\object_detection\images\train\5mg-325mg_Hydrocodone-APAP_Tablet.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>288</width>
+		<height>216</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Acetaminophen 325 MG Oral Tablet</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>60</xmin>
+			<ymin>21</ymin>
+			<xmax>227</xmax>
+			<ymax>106</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Acetaminophen 325 MG Oral Tablet</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>59</xmin>
+			<ymin>114</ymin>
+			<xmax>228</xmax>
+			<ymax>195</ymax>
+		</bndbox>
+	</object>
+</annotation>

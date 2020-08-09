@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>272f18b6-1b10-5621-e054-00144ff8d46c.jpg</filename>
+	<path>C:\tensorflow1\models\research\object_detection\images\train\272f18b6-1b10-5621-e054-00144ff8d46c.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2237</width>
+		<height>2236</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Acetaminophen 325 MG Oral Tablet</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>543</xmin>
+			<ymin>357</ymin>
+			<xmax>1715</xmax>
+			<ymax>1532</ymax>
+		</bndbox>
+	</object>
+</annotation>

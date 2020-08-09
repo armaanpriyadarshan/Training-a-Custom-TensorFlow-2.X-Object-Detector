@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>1569555463118_660457-2.jpg</filename>
+	<path>C:\tensorflow1\models\research\object_detection\images\train\1569555463118_660457-2.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>600</width>
+		<height>600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Ibuprofen 200 MG Oral Tablet</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>190</xmin>
+			<ymin>151</ymin>
+			<xmax>447</xmax>
+			<ymax>405</ymax>
+		</bndbox>
+	</object>
+</annotation>
