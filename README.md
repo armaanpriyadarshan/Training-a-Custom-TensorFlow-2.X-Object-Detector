@@ -86,4 +86,48 @@ Once you are here, you will have to clone the [TensorFlow models repository](htt
 ```
 git clone https://github.com/tensorflow/models.git
 ```
-This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download this repository into a .zip file. 
+This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download this repository into a .zip file. Then extract the two files, workspace and scripts, highlighted below directly in to the TensorFlow directory.
+<p align="left">
+  <img src="doc/clone.png">
+</p>
+
+Then, your directory structure should look something like this
+
+```
+TensorFlow/
+└─ models/
+   ├─ community/
+   ├─ official/
+   ├─ orbit/
+   ├─ research/
+└─ scripts/
+└─ workspace/
+   ├─ training_demo/
+```
+After we have setup the directory structure, we must install the prequisites for the Object Detection API. First we need to install the protobuf compiler with
+
+```
+conda install -c anaconda protobuf
+```
+Then you should cd in to the TensorFlow/models/research directory with
+
+```
+cd models\research
+```
+Then compile the protos with
+
+```
+protoc object_detection\protos\*.proto --python_out=.
+```
+After you have done this, close the terminal and open a new Anaconda prompt. If you are using the virtual environment we created earlier, then use the following command to activate it
+
+```
+conda activate tensorflow
+```
+With TensorFlow 2.x, pycocotools is a dependency for the Object Detection API. To install it with Windows Support use
+
+```
+pip install cython
+pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+```
+**Note that Visual C++ 2015 build tools must be installed and on your path, according to the installation instructions. If you do not have this package, then download it [here](https://go.microsoft.com/fwlink/?LinkId=691126).**
