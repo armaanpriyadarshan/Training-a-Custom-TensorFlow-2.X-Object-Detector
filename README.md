@@ -190,3 +190,15 @@ now on will be loacated in the workspace\training_demo directory. So take a seco
 - The rest of the scripts are just used for training and exporting the model, as well as a sample object detection scipt that performs inference on a test image.
 
 If you want to train a model on your own custom dataset, you must first gather images. Ideally you would want to use 100 images for each class. Say for example, you are training a cat and dog detector. You would have to gather 100 images of cats and 100 images of dogs. For images of pills, I just looked on the internet and downloaded various images. But for your own dataset, I reccomend taking diverse pictures with different backgrounds and angles.
+<p align="center">
+  <img src="doc/1c84d1d5-2318-5f9b-e054-00144ff88e88.jpg">
+</p>
+<p align="center">
+  <img src="doc/5mg-325mg_Hydrocodone-APAP_Tablet.jpg">
+</p>
+<p align="center">
+  <img src="doc/648_pd1738885_1.jpg">
+</p>
+After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you have to label them. To do so, I used LabelImg. 
+[LabelImg](https://tzutalin.github.io/labelImg/)
+Download LabelImg
