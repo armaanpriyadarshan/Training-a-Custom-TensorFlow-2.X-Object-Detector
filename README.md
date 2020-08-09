@@ -262,3 +262,19 @@ python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\trai
 python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\test -l C:\Tensorflow\workspace\training_demo\annotations\label_map.pbtxt -o C:\Tensorflow\workspace\training_demo\annotations\test.record
 ```
  After each command you should get a success meassage stating that the TFRecord File has been created. So now under ```annotations``` there should be a ```test.record``` and ```train.record```. That means we have generated all the data necessary, and we can proceed to configure the training pipeline in the next step
+
+### Configuring the Training Pipeline
+For this tutorial, we will use a CONFIG File from one of the TensorFlow pre-trained models. There are plenty of models in the [TensorFlow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md), but we will use the [SSD MobileNet V2 FPNLite 640x640](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8.tar.gz), as it is on the faster end of the spectrum with decent performance. If you want you can choose a different model, but you will have to alter the steps slightly.
+
+To download the model you want, just click on the name in the TensorFlow Model Zoo. This should download a tar.gz file. Once it has downloaded, extracts the contents of the file to the ```pre-trained-models``` directory. The structure of that directory should now look something like this
+
+```
+training_demo/
+├─ ...
+├─ pre-trained-models/
+│  └─ ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8/
+│     ├─ checkpoint/
+│     ├─ saved_model/
+│     └─ pipeline.config
+└─ ...
+```
