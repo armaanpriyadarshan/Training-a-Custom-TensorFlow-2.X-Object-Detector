@@ -1,5 +1,5 @@
 # Training-a-Custom-TensorFlow-2.X-Object-Detector
-Learn how to train a TensorFlow Custom Object Detector with TensorFlow-GPU
+### Learn how to train a TensorFlow Custom Object Detector with TensorFlow-GPU
 
 This repo is a guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this [documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#), however I have simplified the steps and the process. As of 8/8/2020 I have tested with TensorFlow 2.2.0 to train a model on Windows 10.
 
@@ -199,10 +199,66 @@ If you want to train a model on your own custom dataset, you must first gather i
 <p align="left">
   <img src="doc/648_pd1738885_1.jpg">
 </p>
-After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you can label them with [here]()
+
+After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you can label them with [LabelImg](https://tzutalin.github.io/labelImg).
 
 
-After Downloading LablelImg, configure settings such as the OpenDir and SaveDir. This let's you cycle through all the images and manually create bounding boxes around the objects. Then add labels for each object and save the XML document. Do this for all the images in the images\test and images\train folders. 
+After Downloading LablelImg, configure settings such as the Open Dir and Save Dir. This let's you cycle through all the images and create bounding boxes and labels around the objects. Once you have labelled your image make sure to save and go on to the next image. Do
+this for all the images in the images\test and images\train folders. 
+
 <p align="left">
   <img src="doc/labelimg.png">
 </p>
+
+We have now gathered our dataset. This means we are ready to generate training data. So onwards to the next step!
+
+### Generating Training Data
+
+Since our images and XML files are prepared, we are ready to create the label_map. It is located in the annotations folder, so navigate to that within File Explorer. After you've located label_map.pbtxt, open it with a Text Editor of your choice. If you plan to use my Pill Classification Model, you don't need to make any changes and you can skip to configuring the pipeline. If you want to make your own custom object detector you must create a similar item for each of your labels. Since my model had two classes of pills, my labelmap looked like 
+```
+item {
+    id: 1
+    name: 'Acetaminophen 325 MG Oral Tablet'
+}
+
+item {
+    id: 2
+    name: 'Ibuprofen 200 MG Oral Tablet'
+}
+```
+For example, if you wanted to make a basketball, football, and baseball detector, your labelmap would look something like
+```
+item {
+    id: 1
+    name: 'basketball'
+}
+
+item {
+    id: 2
+    name: 'football'
+}
+
+item {
+    id: 3
+    name: 'baseball'
+}
+```
+Once you are done with this save as ```label_map.pbtxt``` and exit the text editor. Now we have to generate RECORD files for training. The script to do so is located in C:\TensorFlow\scripts\preprocessing, but we must first install the pandas package with
+
+```
+pip install pandas
+```
+Now we should navigate to the scripts\preprocessing directory with
+
+```
+cd C:\TensorFlow\scripts\preprocessing
+```
+
+Once you are in the correct directory, run these two commands to generate the records
+
+```
+python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\train -l C:\Tensorflow\workspace\training_demo\annotations\label_map.pbtxt -o C:\Tensorflow\workspace\training_demo\annotations\train.record
+
+python generate_tfrecord.py -x C:\Tensorflow\workspace\training_demo\images\test -l C:\Tensorflow\workspace\training_demo\annotations\label_map.pbtxt -o C:\Tensorflow\workspace\training_demo\annotations\test.record
+```
+ After each command you should get a success meassage stating that the TFRecord File has been created. That means we have generated all the data necessary, and we can proceed to configure the training pipeline in the next step
