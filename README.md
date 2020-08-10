@@ -392,5 +392,8 @@ Then to run the script, just use
 ```python TF-image-od.py``` 
 
 If everything works properly you should get an output similar to this
+<p align="center">
+  <img src="doc/output.png">
+</p>
 
-
+This means we're done! Over the next few weeks or months, I'll try to add some similar scripts for video and maybe webcam! If you find something cool, feel free to share it, as others can also learn! And if you have any errors, just raise an issue and I'll be happy to take a look at it. Congratulations, and until next time, bye!
