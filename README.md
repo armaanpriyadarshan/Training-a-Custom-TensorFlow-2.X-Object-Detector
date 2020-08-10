@@ -149,7 +149,7 @@ python -m pip install .
 If there are any errors, report an issue, but they are most likely pycocotools issues meaning your installation was incorrect. But if everything went according to plan you can test your installation with
 
 ```
-python object_detection/builders/model_builder_tf2_test.py
+python object_detection\builders\model_builder_tf2_test.py
 ```
 You should get a similar output to this
 
