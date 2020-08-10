@@ -117,9 +117,10 @@ viz_utils.visualize_boxes_and_labels_on_image_array(
       agnostic_mode=False)
 
 print('Done')
+# DISPLAYS OUTPUT IMAGE
 cv2.imshow('Object Detector', image_with_detections)
-
+# CLOSES WINDOW ONCE KEY IS PRESSED
 cv2.waitKey(0)
-
+# CLEANUP
 cv2.destroyAllWindows()
 
