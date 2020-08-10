@@ -374,3 +374,9 @@ python .\exporter_main_v2.py --input_type image_tensor --pipeline_config_path .\
 **Note that if you get an error similar to ```TypeError: Expected Operation, Variable, or Tensor, got block4 in exporter_main_v2.py``` look at [this](https://github.com/tensorflow/models/issues/8881) error topic**
 
 But if this program finishes successfully, then congratulations because your model is finished! It should be located in the ```C:\TensorFlow\workspace\training_demo\exported-models\my_mobilenet_model\saved_model``` folder. There should be an PB File called ```saved_model.pb```. This is the inference graph! I also prefer to copy the ```label_map.pbtxt``` file in to this directory because it makes things a bit easier for testing. If you forgot where the labelmap is located it should be in ```C:\TensorFlow\workspace\training_demo\annotations\label_map.pbtxt```. Since the labelmap and inference graph are organized, we are ready to test! 
+
+### Testing out the Finished Model
+
+To test out your model, you can use the sample object detection script I provided called ```TF-image-od.py```. This should be located in ```C:\TensorFlow\workspace\training_demo```. But first, there are some small changes you must make to the script. So open it up in a text editor and change the following
+
+- Line 32. This is where you have to provide the path to you test image. If you are using my Pill Detection Model, this is unecessary, otherwise provide a path to your own image.
