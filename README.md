@@ -293,4 +293,12 @@ Then open up ```models\my_ssd_mobilenet_v2_fpnlite\pipeline.config``` in a text 
 - Line 3. Change ```num_classes``` to the number of classes your model detects. For the basketball, baseball, and football, example you would change it to ```num_classes: 3```
 - Line 135. Change ```batch_size``` according to available memory (Higher values require more memory and vice-versa). I changed it to:
   - ```batch_size: 6```
-- Line 
+- Line 165. Change ```fine_tune_checkpoint``` to:
+  - ```fine_tune_checkpoint: "pre-trained-models/ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8/checkpoint/ckpt-0"```
+- Line 171. Change ```fine_tune_checkpoint_type``` to:
+  - ```fine_tune_checkpoint_type: "detection"```
+- Line 175. Change ```label_map_path``` to:
+  - ```label_map_path: "annotations/label_map.pbtxt"```
+- Line 177. Change ```input_path``` to:
+  - ```input_path: "annotations/train.record"```
+
