@@ -301,4 +301,7 @@ Then open up ```models\my_ssd_mobilenet_v2_fpnlite\pipeline.config``` in a text 
   - ```label_map_path: "annotations/label_map.pbtxt"```
 - Line 177. Change ```input_path``` to:
   - ```input_path: "annotations/train.record"```
-
+- Line 185. Change ```label_map_path``` to:
+  - ```label_map_path: "annotations/label_map.pbtxt"```
+- Line 189. Change ```input_path``` to:
+  - ```input_path: "annotations/test.record"```
