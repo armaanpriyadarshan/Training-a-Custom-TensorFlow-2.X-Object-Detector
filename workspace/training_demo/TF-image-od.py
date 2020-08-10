@@ -65,7 +65,7 @@ PATH_TO_MODEL_DIR = "exported-models/my_mobilenet_model"
 # Download labels file
 
 
-PATH_TO_LABELS = "exported-models/my_model/saved_model/label_map.pbtxt"
+PATH_TO_LABELS = "exported-models/my_mobilenet_model/saved_model/label_map.pbtxt"
 
 # %%
 # Load the model
