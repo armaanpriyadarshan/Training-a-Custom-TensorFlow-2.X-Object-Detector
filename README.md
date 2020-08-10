@@ -380,3 +380,17 @@ But if this program finishes successfully, then congratulations because your mod
 To test out your model, you can use the sample object detection script I provided called ```TF-image-od.py```. This should be located in ```C:\TensorFlow\workspace\training_demo```. But first, there are some small changes you must make to the script. So open it up in a text editor and change the following
 
 - Line 32. This is where you have to provide the path to you test image. If you are using my Pill Detection Model, this is unecessary, otherwise provide a path to your own image.
+
+After you have provided your image path, everything is ready to go! In your Anaconda Prompt, navigate to the ```training_demo``` directory with
+
+```
+cd C:\TensorFlow\workspace\training_demo
+```
+
+Then to run the script, just use
+
+```python TF-image-od.py``` 
+
+If everything works properly you should get an output similar to this
+
+
