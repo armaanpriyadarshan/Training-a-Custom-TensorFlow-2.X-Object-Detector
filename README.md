@@ -308,7 +308,7 @@ Then open up ```models\my_ssd_mobilenet_v2_fpnlite\pipeline.config``` in a text 
 
 Once we have made all the necessary changes, that means we are ready for training. So let's move on to the next step!
 ### Training the Model
-Now you go back to your Anaconda Prompt. cd in to the ```training_demo``` with 
+Now you go back to your Anaconda Prompt. ```cd``` in to the ```training_demo``` with 
 
 ```
 cd C:\TensorFlow\workspace\training_demo
@@ -328,3 +328,31 @@ I0810 11:56:12.520163 11172 model_lib_v2.py:644] Step 100 per-step time 0.640s l
 ```
 
 Congratulations! You have officially started training your model! Now you can kick back and relax as this will take a few hours depending on your system. With my specs that I mentioned earlier, training took about 2 hours. TensorFlow logs output similar to the one above every 100 steps of the process so if it looks frozen, don't worry about it. This output shows you two statistics: per-step time and loss. You're going to want to pay attention to the loss. In between logs, the loss tends to decrease. Your ideally going to want to stop the program when it's between 0.150 and 0.200. This prevents underfitting and overfitting. For me it took around 4000 steps before the loss entered that range. And then to stop the program just use CTRL+C.
+
+### Monitoring Training with TensorBoard (Optional)
+
+TensorFlow allows you to monitor training and visualize training metrics with TensorBoard! Keep in mind this is completely optional and wont affect the training process, so it's up to you whether you want to do it. 
+First, open up a new Anaconda Prompt. Then activate the virtual environment we configured with
+
+```
+conda activate tensorflow
+```
+
+Then ```cd``` in to the ```training_demo``` directory with
+
+```
+cd C:\TensorFlow\workspace\training_demo
+```
+To start a TensorBoard Server, use 
+ 
+```
+tensorboard --logdir=models\my_ssd_mobilenet_v2_fpnlite
+```
+It should output something like this
+ 
+```
+Serving TensorBoard on localhost; to expose to the network, use a proxy or pass --bind_all
+TensorBoard 2.2.2 at http://localhost:6006/ (Press CTRL+C to quit)
+```
+
+Then just open up a web browser and paste the URL given in to the search bar. This should take you to the TensorBoard Server where you can continuously monitor training!
