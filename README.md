@@ -289,4 +289,8 @@ training_demo/
 └─ ...
 ```
 
-Then 
+Then open up ```models\my_ssd_mobilenet_v2_fpnlite\pipeline.config``` in a text editor because we need to make some changes.
+- Line 3. Change ```num_classes``` to the number of classes your model detects. For the basketball, baseball, and football, example you would change it to ```num_classes: 3```
+- Line 135. Change ```batch_size``` according to available memory (Higher values require more memory and vice-versa). I changed it to:
+  - ```batch_size: 6```
+- Line 
