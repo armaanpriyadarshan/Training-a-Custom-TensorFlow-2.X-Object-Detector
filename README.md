@@ -278,3 +278,15 @@ training_demo/
 │     └─ pipeline.config
 └─ ...
 ```
+Now, we must create a directory to store our training pipeline. Navigate to the ```models``` directory and create a folder called ```my_ssd_mobilenet_v2_fpnlite```. Then copy the ```pipeline.config``` from the pre-trained-model we downloaded earlier to our newly created directory. Your directory should now look something like this
+
+```
+training_demo/
+├─ ...
+├─ models/
+│  └─ my_ssd_mobilenet_v2_fpnlite/
+│     └─ pipeline.config
+└─ ...
+```
+
+Then 
