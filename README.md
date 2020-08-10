@@ -305,3 +305,26 @@ Then open up ```models\my_ssd_mobilenet_v2_fpnlite\pipeline.config``` in a text 
   - ```label_map_path: "annotations/label_map.pbtxt"```
 - Line 189. Change ```input_path``` to:
   - ```input_path: "annotations/test.record"```
+
+Once we have made all the necessary changes, that means we are ready for training. So let's move on to the next step!
+### Training the Model
+Now you go back to your Anaconda Prompt. cd in to the ```training_demo``` with 
+
+```
+cd C:\TensorFlow\workspace\training_demo
+```
+
+I have already moved the training script in to the directory, so to run it just use 
+
+```
+python model_main_tf2.py --model_dir=models/my_ssd_mobilenet_v2_fpnlite --pipeline_config_path=models/my_ssd_mobilenet_v2_fpnlite/pipeline.config
+```
+
+When running the script, you should expect a few warnings but as long as they're not errors you can ignore them. Eventually when the training process starts you should see output similar to this
+
+```
+INFO:tensorflow:Step 100 per-step time 0.640s loss=0.454
+I0810 11:56:12.520163 11172 model_lib_v2.py:644] Step 100 per-step time 0.640s loss=0.454
+```
+
+Congratulations! You have officially started training your model! Now you can kick back and relax as this will take a few hours depending on your system. With my specs that I mentioned earlier, training took about 2 hours. TensorFlow logs output similar to the one above every 100 steps of the process so if it looks frozen, don't worry about it. This output shows you two statistics: per-step time and loss. You're going to want to pay attention to the loss. In between logs, the loss tends to decrease. Your ideally going to want to stop the program when it's between 0.150 and 0.200. This prevents underfitting and overfitting. For me it took around 4000 steps before the loss entered that range. And then to stop the program just use CTRL+C.
