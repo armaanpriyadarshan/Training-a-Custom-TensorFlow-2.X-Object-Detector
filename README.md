@@ -58,13 +58,13 @@ Since you now know the correct CUDA and cuDNN versions needed for TensorFlow, we
 Once done with this we have everything needed to install TensorFlow-GPU (or TensorFlow CPU). So we can navigate back to our anaconda prompt, and issue the following command
 
 ```
-pip install tensorflow-gpu==2.2.0
+pip install tensorflow-gpu
 ```
 
 If you are installing TensorFlow CPU, instead use
 
 ```
-pip install tensorflow==2.2.0
+pip install tensorflow
 ```
 
 Once we are done with the installation, we can use the following code to check if everything installed properly
