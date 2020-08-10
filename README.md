@@ -317,7 +317,7 @@ cd C:\TensorFlow\workspace\training_demo
 I have already moved the training script in to the directory, so to run it just use 
 
 ```
-python model_main_tf2.py --model_dir=models/my_ssd_mobilenet_v2_fpnlite --pipeline_config_path=models/my_ssd_mobilenet_v2_fpnlite/pipeline.config
+python model_main_tf2.py --model_dir=models\my_ssd_mobilenet_v2_fpnlite --pipeline_config_path=models\my_ssd_mobilenet_v2_fpnlite\pipeline.config
 ```
 
 When running the script, you should expect a few warnings but as long as they're not errors you can ignore them. Eventually when the training process starts you should see output similar to this
