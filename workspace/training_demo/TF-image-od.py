@@ -51,9 +51,7 @@ IMAGE_PATHS = "images/test/i-1e092ec6eabf47f9b85795a9e069181b.jpg"
 
 # Download and extract model
 
-MODEL_DATE = '20200711'
-MODEL_NAME = 'centernet_hg104_1024x1024_coco17_tpu-32'
-PATH_TO_MODEL_DIR = "exported-models/my_model"
+PATH_TO_MODEL_DIR = "exported-models/my_mobilenet_model"
 
 # %%
 # Download the labels
@@ -67,7 +65,6 @@ PATH_TO_MODEL_DIR = "exported-models/my_model"
 # Download labels file
 
 
-LABEL_FILENAME = 'mscoco_label_map.pbtxt'
 PATH_TO_LABELS = "exported-models/my_model/saved_model/label_map.pbtxt"
 
 # %%
@@ -186,7 +183,7 @@ viz_utils.visualize_boxes_and_labels_on_image_array(
       agnostic_mode=False)
 
 print('Done')
-cv2.imshow('Pill Detector', image_with_detections)
+cv2.imshow('Object Detector', image_with_detections)
 
 cv2.waitKey(0)
 
