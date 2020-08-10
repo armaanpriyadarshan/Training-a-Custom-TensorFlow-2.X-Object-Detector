@@ -389,7 +389,13 @@ cd C:\TensorFlow\workspace\training_demo
 
 Then to run the script, just use
 
-```python TF-image-od.py``` 
+```
+python TF-image-od.py
+``` 
+
+**Note that if you get an error similar to ```
+cv2.error: OpenCV(4.3.0) C:\Users\appveyor\AppData\Local\Temp\1\pip-req-build-kv3taq41\opencv\modules\highgui\src\window.cpp:651: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Cocoa support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
+``` just run ```pip install opencv-python``` and run the program again**
 
 If everything works properly you should get an output similar to this
 <p align="center">
