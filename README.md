@@ -3,7 +3,7 @@
 
 This repo is a guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this [documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#), however I have simplified the steps and the process. As of 8/8/2020 I have tested with TensorFlow 2.2.0 to train a model on Windows 10.
 
-I will soon make a YouTube Tutorial which will be posted [here](), and an extremely import step [here](https://www.youtube.com/channel/UCT9t2Bug62RDUfSBcPt0Bzg?sub_confirmation=1)!
+I will soon make a YouTube Tutorial which will be posted [here](https://youtu.be/oqd54apcgGE), and an extremely import step [here](https://www.youtube.com/channel/UCT9t2Bug62RDUfSBcPt0Bzg?sub_confirmation=1)!
 
 ## Table of Contents
 1. [Installing TensorFlow GPU](https://github.com/armaanpriyadarshan/Training-a-Custom-TensorFlow-2.x-Object-Detector#installing-tensorflow-gpu)
