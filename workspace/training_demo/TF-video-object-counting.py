@@ -149,7 +149,7 @@ while(video.isOpened()):
             cv2.putText(frame, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2) # Draw label text
             
 
-    cv2.putText (frame,'Pills Detected : ' + str(count),(10,25),cv2.FONT_HERSHEY_SIMPLEX,1,(70,235,52),2,cv2.LINE_AA)
+    cv2.putText (frame,'Total Detections : ' + str(count),(10,25),cv2.FONT_HERSHEY_SIMPLEX,1,(70,235,52),2,cv2.LINE_AA)
     cv2.imshow('Object Detector', frame)
 
     if cv2.waitKey(1) == ord('q'):
