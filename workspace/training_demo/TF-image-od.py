@@ -10,25 +10,38 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)
 import pathlib
 import tensorflow as tf
 import cv2
+import argparse
 
 tf.get_logger().setLevel('ERROR')           # Suppress TensorFlow logging (2)
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', help='Folder that the Saved Model is Located In',
+                    default='exported-models/my_mobilenet_model')
+parser.add_argument('--labels', help='Where the Labelmap is Located',
+                    default='exported-models/my_mobilenet_model/saved_model/label_map.pbtxt')
+parser.add_argument('--image', help='Name of the single image to perform detection on',
+                    default='images/test/i-1e092ec6eabf47f9b85795a9e069181b.jpg')
+parser.add_argument('--threshold', help='Minimum confidence threshold for displaying detected objects',
+                    default=0.60)
+                    
+args = parser.parse_args()
 # Enable GPU dynamic memory allocation
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
 
 # PROVIDE PATH TO IMAGE DIRECTORY
-IMAGE_PATHS = "images/test/i-1e092ec6eabf47f9b85795a9e069181b.jpg"
+IMAGE_PATHS = args.image
 
 
 # PROVIDE PATH TO MODEL DIRECTORY
-PATH_TO_MODEL_DIR = "exported-models/my_mobilenet_model"
+PATH_TO_MODEL_DIR = args.model
 
 # PROVIDE PATH TO LABEL MAP
+PATH_TO_LABELS = args.labels
 
-
-PATH_TO_LABELS = "exported-models/my_mobilenet_model/saved_model/label_map.pbtxt"
+# PROVIDE THE MINIMUM CONFIDENCE THRESHOLD
+MIN_CONF_THRESH = float(args.threshold)
 
 # LOAD THE MODEL
 
@@ -113,7 +126,7 @@ viz_utils.visualize_boxes_and_labels_on_image_array(
       category_index,
       use_normalized_coordinates=True,
       max_boxes_to_draw=200,
-      min_score_thresh=.60,
+      min_score_thresh=MIN_CONF_THRESH,
       agnostic_mode=False)
 
 print('Done')
