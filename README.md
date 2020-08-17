@@ -377,9 +377,11 @@ But if this program finishes successfully, then congratulations because your mod
 
 ### Testing out the Finished Model
 
-To test out your model, you can use the sample object detection script I provided called ```TF-image-od.py```. This should be located in ```C:\TensorFlow\workspace\training_demo```. But first, there are some small changes you must make to the script. So open it up in a text editor and change the following
+To test out your model, you can use the sample object detection script I provided called ```TF-image-od.py```. This should be located in ```C:\TensorFlow\workspace\training_demo```. **Update**: I have added video support, argument support, and an extra OpenCV method. The description for each program shall be listed below 
+- ```TF-image-od.py```: This program uses the viz_utils model to visualize labels and bounding boxes. It performs object detection on a single image, and displays it with a cv2 window.
+- ```TF-image-object-counting.py```: This program also performs inference on a single image. I have added my own labelling method with OpenCV which I prefer. It also counts the number of detections and displays it in the top left corner. The final image is, again, displayed with a cv2 window
 
-- Line 22. This is where you have to provide the path to you test image. If you are using my Pill Detection Model, this is unecessary, otherwise provide a path to your own image.
+
 
 After you have provided your image path, everything is ready to go! In your Anaconda Prompt, navigate to the ```training_demo``` directory with
 
