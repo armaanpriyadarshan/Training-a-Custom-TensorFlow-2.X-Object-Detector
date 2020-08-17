@@ -10,25 +10,38 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)
 import pathlib
 import tensorflow as tf
 import cv2
+import argparse
 
 tf.get_logger().setLevel('ERROR')           # Suppress TensorFlow logging (2)
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', help='Folder that the Saved Model is Located In',
+                    default='exported-models/my_mobilenet_model')
+parser.add_argument('--labels', help='Where the Labelmap is Located',
+                    default='exported-models/my_mobilenet_model/saved_model/label_map.pbtxt')
+parser.add_argument('--image', help='Name of the single image to perform detection on',
+                    default='images/test/i-1e092ec6eabf47f9b85795a9e069181b.jpg')
+parser.add_argument('--threshold', help='Minimum confidence threshold for displaying detected objects',
+                    default=0.5)
+                    
+args = parser.parse_args()
 # Enable GPU dynamic memory allocation
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
 
 # PROVIDE PATH TO IMAGE DIRECTORY
-IMAGE_PATHS = "images/test/i-1e092ec6eabf47f9b85795a9e069181b.jpg"
+IMAGE_PATHS = args.image
 
 
 # PROVIDE PATH TO MODEL DIRECTORY
-PATH_TO_MODEL_DIR = "exported-models/my_mobilenet_model"
+PATH_TO_MODEL_DIR = args.model
 
 # PROVIDE PATH TO LABEL MAP
+PATH_TO_LABELS = args.labels
 
-
-PATH_TO_LABELS = "exported-models/my_mobilenet_model/saved_model/label_map.pbtxt"
+# PROVIDE THE MINIMUM CONFIDENCE THRESHOLD
+MIN_CONF_THRESH = float(args.threshold)
 
 # LOAD THE MODEL
 
@@ -106,7 +119,7 @@ boxes = detections['detection_boxes']
 classes = detections['detection_classes']
 count = 0
 for i in range(len(scores)):
-    if ((scores[i] > 0.5) and (scores[i] <= 1.0)):
+    if ((scores[i] > MIN_CONF_THRESH) and (scores[i] <= 1.0)):
         #increase count
         count += 1
         # Get bounding box coordinates and draw box
@@ -126,10 +139,10 @@ for i in range(len(scores)):
         cv2.putText(image, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2) # Draw label text
         
 
-cv2.putText (image,'Objects Detected : ' + str(count),(10,25),cv2.FONT_HERSHEY_SIMPLEX,1,(70,235,52),2,cv2.LINE_AA)
+cv2.putText (image,'Total Detections : ' + str(count),(10,25),cv2.FONT_HERSHEY_SIMPLEX,1,(70,235,52),2,cv2.LINE_AA)
 print('Done')
 # DISPLAYS OUTPUT IMAGE
-cv2.imshow('Object Detector', image)
+cv2.imshow('Object Counter', image)
 # CLOSES WINDOW ONCE KEY IS PRESSED
 cv2.waitKey(0)
 # CLEANUP
