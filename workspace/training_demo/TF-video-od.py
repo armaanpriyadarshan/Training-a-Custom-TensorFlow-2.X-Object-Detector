@@ -10,25 +10,38 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)
 import pathlib
 import tensorflow as tf
 import cv2
+import argparse
 
 tf.get_logger().setLevel('ERROR')           # Suppress TensorFlow logging (2)
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', help='Folder that the Saved Model is Located In',
+                    default='exported-models/my_mobilenet_model')
+parser.add_argument('--labels', help='Where the Labelmap is Located',
+                    default='exported-models/my_mobilenet_model/saved_model/label_map.pbtxt')
+parser.add_argument('--video', help='Name of the video to perform detection on. To run detection on multiple images, use --imagedir',
+                    default='test.mp4')
+parser.add_argument('--threshold', help='Minimum confidence threshold for displaying detected objects',
+                    default=0.75)
+                    
+args = parser.parse_args()
 # Enable GPU dynamic memory allocation
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
-# CHANGE THE VIDEO PATH TO WHEREVER YOUR VIDEO IS LOCATED
-VIDEO_PATHS = "test.mp4"
+
+# PROVIDE PATH TO IMAGE DIRECTORY
+VIDEO_PATHS = args.video
 
 
-# SET YOUR MODEL DIR PATH TO WHEREVER THE SAVED MODEL IS LOCATED
+# PROVIDE PATH TO MODEL DIRECTORY
+PATH_TO_MODEL_DIR = args.model
 
-PATH_TO_MODEL_DIR = "exported-models/my_mobilenet_model"
+# PROVIDE PATH TO LABEL MAP
+PATH_TO_LABELS = args.labels
 
-# SET YOUR LABEL PATH TO WHEREVER THE LABEL MAP IS LOCATED
-
-
-PATH_TO_LABELS = "exported-models/my_mobilenet_model/saved_model/label_map.pbtxt"
+# PROVIDE THE MINIMUM CONFIDENCE THRESHOLD
+MIN_CONF_THRESH = float(args.threshold)
 
 # Load the model
 # ~~~~~~~~~~~~~~
@@ -119,7 +132,7 @@ while(video.isOpened()):
           category_index,
           use_normalized_coordinates=True,
           max_boxes_to_draw=200,
-          min_score_thresh=.75,
+          min_score_thresh=MIN_CONF_THRESH,
           agnostic_mode=False)
 
     cv2.imshow('Object Detector', frame_with_detections)
