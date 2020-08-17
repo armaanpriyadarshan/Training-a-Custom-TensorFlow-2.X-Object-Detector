@@ -74,6 +74,7 @@ python
 >>> print(tf.__version__)
 ```
 If everything has installed properly you should get the message, "2.2.0", or whatever version of TensorFlow you have. This means TensorFlow is up and running and we are ready to setup our workspace. We can now proceed to the next step!
+**Note if there is an error with importing, you must install [Visual Studio 2019 with C++ Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16). 
 
 ### Preparing our Workspace and Anaconda Virtual Environment Directory Structure
 For the TensorFlow Object Detection API, there is a certain directory structure that we must follow to train our model. To make the process a bit easier, I added most of the necessary files in this repository.
