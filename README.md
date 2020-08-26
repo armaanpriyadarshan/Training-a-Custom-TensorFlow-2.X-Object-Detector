@@ -73,7 +73,7 @@ python
 >>> import tensorflow as tf
 >>> print(tf.__version__)
 ```
-If everything has installed properly you should get the message, "2.2.0", or whatever version of TensorFlow you have. This means TensorFlow is up and running and we are ready to setup our workspace. We can now proceed to the next step!
+If everything has installed properly you should get the message, "2.3.0", or whatever version of TensorFlow you have. This means TensorFlow is up and running and we are ready to setup our workspace. We can now proceed to the next step!
 **Note if there is an error with importing, you must install [Visual Studio 2019 with C++ Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16). 
 
 ### Preparing our Workspace and Anaconda Virtual Environment Directory Structure
