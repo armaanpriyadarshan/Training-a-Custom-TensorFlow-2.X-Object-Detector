@@ -89,7 +89,7 @@ Once you are here, you will have to clone the [TensorFlow models repository](htt
 ```
 git clone https://github.com/tensorflow/models.git
 ```
-This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download [this](https://github.com/armaanpriyadarshan/Training-a-Custom-TensorFlow-2.x-Object-Detector/archive/master.zip) repository into a .zip file. Then extract the two files, workspace and scripts, highlighted below directly in to the TensorFlow directory.
+This should clone all the files in a directory called models. After you've done so, stay inside C:\TensorFlow and download [this](https://github.com/armaanpriyadarshan/Training-a-Custom-TensorFlow-2.X-Object-Detector/archive/master.zip) repository into a .zip file. Then extract the two files, workspace and scripts, highlighted below directly in to the TensorFlow directory.
 <p align="left">
   <img src="doc/clone.png">
 </p>
@@ -127,7 +127,7 @@ After you have done this, close the terminal and open a new Anaconda prompt. If 
 ```
 conda activate tensorflow
 ```
-With TensorFlow 2.x, pycocotools is a dependency for the Object Detection API. To install it with Windows Support use
+With TensorFlow 2, pycocotools is a dependency for the Object Detection API. To install it with Windows Support use
 
 ```
 pip install cython
