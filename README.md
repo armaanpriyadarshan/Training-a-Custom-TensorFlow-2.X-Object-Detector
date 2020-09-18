@@ -376,7 +376,7 @@ python .\exporter_main_v2.py --input_type image_tensor --pipeline_config_path .\
 
 But if this program finishes successfully, then congratulations because your model is finished! It should be located in the ```C:\TensorFlow\workspace\training_demo\exported-models\my_mobilenet_model\saved_model``` folder. There should be an PB File called ```saved_model.pb```. This is the inference graph! I also prefer to copy the ```label_map.pbtxt``` file in to this directory because it makes things a bit easier for testing. If you forgot where the labelmap is located it should be in ```C:\TensorFlow\workspace\training_demo\annotations\label_map.pbtxt```. Since the labelmap and inference graph are organized, we are ready to test! 
 
-### Evaluating the Model(Optional)
+### Evaluating the Model (Optional)
 
 If you want to measure model metrics such as IoU, mAP, Recall, and Precision, you'll want to complete this step. The most up-to-date TensorFlow Documentation for evaluating the model will be located [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_training_and_evaluation.md#evaluation)
 
