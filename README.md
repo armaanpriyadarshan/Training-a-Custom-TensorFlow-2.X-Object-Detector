@@ -376,6 +376,30 @@ python .\exporter_main_v2.py --input_type image_tensor --pipeline_config_path .\
 
 But if this program finishes successfully, then congratulations because your model is finished! It should be located in the ```C:\TensorFlow\workspace\training_demo\exported-models\my_mobilenet_model\saved_model``` folder. There should be an PB File called ```saved_model.pb```. This is the inference graph! I also prefer to copy the ```label_map.pbtxt``` file in to this directory because it makes things a bit easier for testing. If you forgot where the labelmap is located it should be in ```C:\TensorFlow\workspace\training_demo\annotations\label_map.pbtxt```. Since the labelmap and inference graph are organized, we are ready to test! 
 
+### Evaluating the Model(Optional)
+
+If you want to measure model metrics such as IoU, mAP, Recall, and Precision, you'll want to complete this step. The most up-to-date TensorFlow Documentation for evaluating the model will be located [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_training_and_evaluation.md#evaluation)
+
+You should still be in your ```TensorFlow/workspace/training_demo``` but if not cd into it with
+
+```
+cd C:\TensorFlow\workspace\training_demo
+```
+
+Now just run the following command to following command for evaluation
+
+```
+python model_main_tf2.py --pipeline_config_path models\my_ssd_mobilenet_v2_fpnlite\pipeline.config --model_dir models\my_ssd_mobilenet_v2_fpnlite --checkpoint_dir models\my_ssd_mobilenet_v2_fpnlite --alsologtostderr
+```
+
+**Note that if you get an error similar to ```TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer```, just downgrade your NumPy version. For me, version 1.17.3 worked so you can install it with ```pip install numpy==1.17.3```
+
+If everything works properly, you should get something similar to this
+
+<p align="center">
+  <img src="doc/evaluation.png">
+</p>
+
 ### Testing out the Finished Model
 
 To test out your model, you can use the sample object detection script I provided called ```TF-image-od.py```. This should be located in ```C:\TensorFlow\workspace\training_demo```. **Update**: I have added video support, argument support, and an extra OpenCV method. The description for each program shall be listed below 
