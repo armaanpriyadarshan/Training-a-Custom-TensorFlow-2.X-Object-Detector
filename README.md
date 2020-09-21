@@ -411,7 +411,7 @@ To test out your model, you can use the sample object detection script I provide
 The usage of each program looks like 
 
 ```
-usage: TF-image-opencv.py [-h] [--model MODEL] [--labels LABELS] [--image IMAGE] [--threshold THRESHOLD]
+usage: TF-image-od.py [-h] [--model MODEL] [--labels LABELS] [--image IMAGE] [--threshold THRESHOLD]
 
 optional arguments:
   -h, --help            show this help message and exit
