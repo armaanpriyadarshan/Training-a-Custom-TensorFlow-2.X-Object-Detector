@@ -3,7 +3,7 @@ import argparse
 # Define model and output directory arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', help='Folder that the saved model is located in',
-                    default='exported-models/my_mobilenet_model/saved_model')
+                    default='exported-models/my_tflite_model/saved_model')
 parser.add_argument('--output', help='Folder that the tflite model will be written to',
                     default='exported-models/my_tflite_model')
 args = parser.parse_args()
