@@ -14,20 +14,16 @@
 # limitations under the License.
 # ==============================================================================
 r"""Exports TF2 detection SavedModel for conversion to TensorFlow Lite.
-
 Link to the TF2 Detection Zoo:
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 The output folder will contain an intermediate SavedModel that can be used with
 the TfLite converter.
-
 NOTE: This only supports SSD meta-architectures for now.
-
 One input:
   image: a float32 tensor of shape[1, height, width, 3] containing the
   *normalized* input image.
   NOTE: See the `preprocess` function defined in the feature extractor class
   in the object_detection/models directory.
-
 Four Outputs:
   detection_boxes: a float32 tensor of shape [1, num_boxes, 4] with box
   locations
@@ -36,23 +32,19 @@ Four Outputs:
   detection_scores: a float32 tensor of shape [1, num_boxes]
   with class scores
   num_boxes: a float32 tensor of size 1 containing the number of detected boxes
-
 Example Usage:
 --------------
 python object_detection/export_tflite_graph_tf2.py \
     --pipeline_config_path path/to/ssd_model/pipeline.config \
     --trained_checkpoint_dir path/to/ssd_model/checkpoint \
     --output_directory path/to/exported_model_directory
-
 The expected output SavedModel would be in the directory
 path/to/exported_model_directory (which is created if it does not exist).
-
 Config overrides (see the `config_override` flag) are text protobufs
 (also of type pipeline_pb2.TrainEvalPipelineConfig) which are used to override
 certain fields in the provided pipeline_config_path.  These are useful for
 making small changes to the inference graph that differ from the training or
 eval config.
-
 Example Usage (in which we change the NMS iou_threshold to be 0.5 and
 NMS score_threshold to be 0.0):
 python object_detection/export_tflite_model_tf2.py \
@@ -94,13 +86,19 @@ flags.DEFINE_string('output_directory', None, 'Path to write outputs.')
 flags.DEFINE_string(
     'config_override', '', 'pipeline_pb2.TrainEvalPipelineConfig '
     'text proto to override pipeline_config_path.')
-# SSD-specific flags
-flags.DEFINE_integer('ssd_max_detections', 10,
+flags.DEFINE_integer('max_detections', 10,
                      'Maximum number of detections (boxes) to return.')
+# SSD-specific flags
 flags.DEFINE_bool(
     'ssd_use_regular_nms', False,
     'Flag to set postprocessing op to use Regular NMS instead of Fast NMS '
     '(Default false).')
+# CenterNet-specific flags
+flags.DEFINE_bool(
+    'centernet_include_keypoints', False,
+    'Whether to export the predicted keypoint tensors. Only CenterNet model'
+    ' supports this flag.'
+)
 
 
 def main(argv):
@@ -115,11 +113,10 @@ def main(argv):
     text_format.Parse(f.read(), pipeline_config)
   text_format.Parse(FLAGS.config_override, pipeline_config)
 
-  export_tflite_graph_lib_tf2.export_tflite_model(pipeline_config,
-                                                  FLAGS.trained_checkpoint_dir,
-                                                  FLAGS.output_directory,
-                                                  FLAGS.ssd_max_detections,
-                                                  FLAGS.ssd_use_regular_nms)
+  export_tflite_graph_lib_tf2.export_tflite_model(
+      pipeline_config, FLAGS.trained_checkpoint_dir, FLAGS.output_directory,
+      FLAGS.max_detections, FLAGS.ssd_use_regular_nms,
+      FLAGS.centernet_include_keypoints)
 
 
 if __name__ == '__main__':
